@@ -1,36 +1,33 @@
 package inheritances;
 
-class Animal {
-    public void eat() {
-        System.out.println("Animal is eating");
+class Vehicle {
+    void start() {
+        System.out.println("Vehicle is starting");
     }
 }
 
-class Dog extends Animal {
-    public void bark() {
-        System.out.println("Dog is barking");
+class Car extends Vehicle {
+    void drive() {
+        System.out.println("Car is driving");
     }
 
     @Override
-    public void eat() {
-        super.eat();
-        System.out.println("Dog is eating bone");
+    void start() {
+        super.start();
+        System.out.println("Car engine is running");
     }
 }
 
 public class DownCastingExample {
     public static void main(String[] args) {
-        // Upcasting: Objek Dog dianggap sebagai Animal
-        // Animal myAnimal = new Dog();
+        // Upcasting: Objek Car dianggap sebagai Vehicle
+        Vehicle myVehicle = new Car();
 
-        // // Downcasting: Mengonversi objek kembali ke kelas turunannya (Dog)
-        // Dog myDog = (Dog) myAnimal;
+        // Downcasting: Mengonversi objek kembali ke kelas turunannya (Car)
+        Car myCar = (Car) myVehicle;
 
-        // // Memanggil metode dari kelas turunan
-        // myDog.bark(); // Output: Dog is barking
-        // myDog.eat(); // Output: Dog is eating bone
-
-        Dog yourDog = new Dog();
-        yourDog.eat();
+        // Memanggil metode dari kelas turunan
+        myCar.start(); // Output: Vehicle is starting \n Car engine is running
+        myCar.drive(); // Output: Car is driving
     }
 }
